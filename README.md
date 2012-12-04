@@ -18,3 +18,7 @@ How to use it:
 
 goto http://drunkathome.no-ip.org and get drunk!
 (you can also view the HELP section at the website/app)
+
+Bug Reporting:
+
+Report your bugs to: igoros@post.jce.ac.il (drunk at home email coming soon...)
