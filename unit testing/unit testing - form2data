@@ -1,0 +1,92 @@
+Drunk@Home Unit Tests - Parsing an admin_page "Add Ingredient" Form
+===================================================================
+Using Tests::Simple tests Perl Module
+*************************************
+
+Test 1:	Testing form2data function to accept first argument from HTML Form
+	Input: "ingName=Brandy"
+	Expected Output: "Brandy"
+
+	
+1..1
+not ok 1 - Catching one Argument from Form
+# 
+#   Failed test 'Catching one Argument from Form
+# '
+#   at ./perltest.pl line 11.
+# Looks like you failed 1 test of 1.
+
+
+***after refactoring***
+
+1..1
+ok 1 - Catching one Argument from Form
+# 
+
+Test 2:	Testing form2data function to accept first&second argument from HTML Form
+	Input: "ingName=Brandy&altName=Cognac"
+	Expected Output: "Brandy.Cognac"
+
+
+1..2
+ok 1 - Catching one Argument from Form
+# 
+not ok 2 - Catching one Argument from Form
+# 
+#   Failed test 'Catching one Argument from Form
+# '
+#   at ./perltest.pl line 13.
+# Looks like you failed 1 test of 2.
+
+***after refactoring***
+
+1..2
+ok 1 - Catching one Argument from Form
+# 
+ok 2 - Catching two Arguments from Form
+# 
+
+Test 3:	Testing form2data function to accept first&second&third argument (a checkbox!) from HTML Form
+	Input: "ingName=Brandy&altName=Cognac&basic=on"
+	Expected Output: "Brandy.Cognac.on"
+
+ok 1 - Catching one Argument from Form
+# 
+ok 2 - Catching two Arguments from Form
+# 
+ok 3 - Catching three Arguments from Form
+# 
+
+The test passed perfectly! seems our code can also parse 3 arguments! lets try 4:
+
+	Input: "ingName=Brandy&altName=Cognac&basic=on&category=alcoholic"
+	Expected Output: "Brandy.Cognac.on.alcoholic"
+1..4
+ok 1 - Catching one Argument from Form
+# 
+ok 2 - Catching two Arguments from Form
+# 
+ok 3 - Catching three Arguments from Form
+# 
+not ok 4 - Catching four Arguments from Form
+# 
+#   Failed test 'Catching four Arguments from Form
+# '
+#   at ./perltest.pl line 17.
+# Looks like you failed 1 test of 4.
+
+*** after refactoring ***
+
+1..4
+ok 1 - Catching one Argument from Form
+# 
+ok 2 - Catching two Arguments from Form
+# 
+ok 3 - Catching three Arguments from Form
+# 
+ok 4 - Catching four Arguments from Form
+# 
+
+Thats it! we can now pass the parsed form to our SQL query handling code and input the Ingredient into our DB!
+Great Success!
+
