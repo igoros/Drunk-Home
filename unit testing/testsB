@@ -1,0 +1,25 @@
+Drunk@Home Unit Tests - Parsing an admin_page "Add Ingredient" Form
+===================================================================
+Using Tests::Simple tests Perl Module
+*************************************
+
+Test 1:	Testing form2data function to accept first argument from HTML Form
+	Input: "ingName=Brandy&altName=Cognac&basic=on&category=alcoholic&ingsubmit=submit"
+	Expected Output: "Brandy"
+
+	
+1..1
+not ok 1 - Catching one Argument from Form
+# 
+
+***after refactoring***
+
+1..1
+ok 1 - Catching one Argument from Form
+# 
+
+Test 2:	Testing form2data function to accept first&second argument from HTML Form
+	Input: "ingName=Brandy&altName=Cognac&basic=on&category=alcoholic&ingsubmit=submit"
+	Expected Output: "Brandy.Cognac"
+
+

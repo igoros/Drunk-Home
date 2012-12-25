@@ -1,0 +1,64 @@
+#!/usr/bin/perl
+#print "Content-type: text/html\n\n";
+
+
+# Read the standard input (sent by the form):
+#read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
+#print Dumper $FormData;
+
+use Test::Simple tests=>2;
+
+ok(&maain("ingName=Brandy&altName=Cognac&basic=on&category=alcoholic&ingsubmit=submit") eq "Brandy..","Catching one Argument from Form\n");
+
+ok(&maain("ingName=Brandy&altName=Cognac&basic=on&category=alcoholic&ingsubmit=submit") eq "Brandy.Cognac.","Catching one Argument from Form\n");
+
+#&maain("ingName=Brandy&altName=Cognac&basic=on&category=alcoholic&ingsubmit=submit");
+
+sub maain($FormData)
+{
+my $list={'ingName'=>"",
+	  'category'=>"",
+	  'altName'=>"",
+	  'basic'=>""
+	};
+my $FormData=shift;
+
+&form2data($FormData,$list);
+
+
+
+print Dumper $list;
+
+#print "$list->{'ingName'}.$list->{'category'}.$list->{'altName'}";
+return "$list->{'ingName'}.$list->{'category'}.$list->{'altName'}";
+}
+
+sub form2data{
+
+my $FormData = shift;
+my $parsedForm = shift;
+# Get the name and value for each form input:
+@pairs = split(/&/, $FormData);
+
+# Then for each name/value pair....
+foreach $pair (@pairs) {
+
+	# Separate the name and value:
+	($name, $value) = split(/=/, $pair);
+
+	# Convert + signs to spaces:
+	$value =~ tr/+/ /;
+
+	# Convert hex pairs (%HH) to ASCII characters:
+	$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+
+	# Store values in a hash called %FORM:
+	if($name eq ingName){
+		$parsedForm->{$name} = $value;
+		}
+}
+return $parsedForm;
+}
+1;
+
+
