@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>Drunk at Home recipe page</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+
+	html {
+	vertical-align:top;}
+	
+	
+	table, td, th {
+      		vertical-align:top;} 
+
+	body {
+	width: 600px;
+	margin-left:auto;
+	margin-right:auto;
+	
+	}
+	
+	p {
+	text-align: left;
+	}
+	
+	h3 {
+	font:Helvetica,"Helvetica neue", Arial, sans-serif;
+	text-align: left;
+	color: red;
+	text-shadow: 5px 5px 10px black;
+	text-shadow: 5px 5px 10px black;}
+	
+	
+	div{
+		display: table-cell
+		align: top
+		hight:30%}
+
+	</style>
+</head>
+<body>
+	
+	<table>
+   <thead>
+	<tr>
+		<h2>COCKNAME</h2>
+	</tr>
+      <tr>
+        <th><img src="../pic/COCKPIC" alt="search by ing" width="100" height="100"/></th>
+        <th>
+		<p>
+			INGREDIENTS
+		</p></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <th><div><h3>rating:</h3>
+						<img src="../pic/rating_4_5.gif" alt="rating pic" height="30px"></div></th>
+         <th>
+			<p>
+			RECIPE
+			</p>
+		</th>
+      </tr>
+   </tbody>
+</table>
+</body>
+	
+</html>

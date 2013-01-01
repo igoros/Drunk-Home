@@ -1,0 +1,647 @@
+checking ID 3 where ingredient string is 
+checking ID 4 where ingredient string is 
+checking ID 5 where ingredient string is 
+checking ID 6 where ingredient string is 
+checking ID 10 where ingredient string is 
+checking ID 11 where ingredient string is 
+checking ID 12 where ingredient string is 
+checking ID 13 where ingredient string is 
+checking ID 14 where ingredient string is 
+checking ID 15 where ingredient string is 
+checking ID 16 where ingredient string is 
+checking ID 17 where ingredient string is 
+checking ID 18 where ingredient string is 
+checking ID 19 where ingredient string is 
+checking ID 20 where ingredient string is 
+checking ID 21 where ingredient string is 
+checking ID 22 where ingredient string is 
+checking ID 23 where ingredient string is 
+checking ID 24 where ingredient string is 
+checking ID 25 where ingredient string is 
+checking ID 26 where ingredient string is 
+checking ID 27 where ingredient string is 
+checking ID 28 where ingredient string is 
+checking ID 29 where ingredient string is 
+checking ID 30 where ingredient string is 
+checking ID 31 where ingredient string is 
+checking ID 32 where ingredient string is 
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=3
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=3
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=4
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=4
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=5
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=5
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=6
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=6
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=10
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=10
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=11
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=11
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=12
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=12
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=13
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=13
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=14
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=14
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=15
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=15
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=16
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=16
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=17
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=17
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=18
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=18
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=19
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=19
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=20
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=20
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=21
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=21
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=22
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=22
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=23
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=23
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=24
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=24
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=25
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=25
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=26
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=26
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=27
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=27
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=28
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=28
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=29
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=29
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=30
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=30
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=31
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=31
+path query = SELECT PicturePath FROM Pictures WHERE CocktailID=32
+name= SELECT CocktailName FROM Cocktails WHERE CocktailID=32
+Content-type:text/html
+
+after entire cocktail check. added cocktail 3
+after entire cocktail check. added cocktail 4
+after entire cocktail check. added cocktail 5
+after entire cocktail check. added cocktail 6
+after entire cocktail check. added cocktail 10
+after entire cocktail check. added cocktail 11
+after entire cocktail check. added cocktail 12
+after entire cocktail check. added cocktail 13
+after entire cocktail check. added cocktail 14
+after entire cocktail check. added cocktail 15
+after entire cocktail check. added cocktail 16
+after entire cocktail check. added cocktail 17
+after entire cocktail check. added cocktail 18
+after entire cocktail check. added cocktail 19
+after entire cocktail check. added cocktail 20
+after entire cocktail check. added cocktail 21
+after entire cocktail check. added cocktail 22
+after entire cocktail check. added cocktail 23
+after entire cocktail check. added cocktail 24
+after entire cocktail check. added cocktail 25
+after entire cocktail check. added cocktail 26
+after entire cocktail check. added cocktail 27
+after entire cocktail check. added cocktail 28
+after entire cocktail check. added cocktail 29
+after entire cocktail check. added cocktail 30
+after entire cocktail check. added cocktail 31
+after entire cocktail check. added cocktail 32
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home search by ing page</title>
+	<meta name="keywords" content="drunk at home, drunk@home, jce project"; charset=UTF-8" />
+
+	<style type="text/css">
+			
+		html, body{
+			width:300px;
+			overflow-Y:auto; 
+			overflow-x:hidden;		
+			max-height: 300px; 
+			margin-left:auto;
+			margin-right:auto;}
+
+		table{
+			display: inline-block;
+			margin-left:auto;
+			margin-right:auto;}
+		<!--
+		A:link {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:visited {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:active {COLOR: white; TEXT-DECORATION: none }
+		A:hover {COLOR: red; TEXT-DECORATION: none; font-weight: none }
+		-->
+		.picture{
+			width:70px;
+			hieght:auto}
+			
+		.reatingPic{
+			width:70px;
+			hieght:auto}
+			
+		.bord{
+			border-color:black;
+			border-width:1px;
+			border-style:solid;}
+		
+		.scroll{
+			height:30px;
+			overflow:auto;}
+	</style>
+</head>
+<body>
+	<table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">Screwdriver</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/white-russian-5-500x270.jpg" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">White Russian</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">B-52</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">test</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">jjommmmmjo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">jjommmmjo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">jjommmjo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">jjommmo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">bungee</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">test3</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">Dakiri</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">test5</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">11122</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">234</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">333</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">444</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">555</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">test555</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">test5556</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">tessssssst</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">finale</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/rating_0_5.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">finaleoffinel</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/search_by_ing_butten.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">testooooooooo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">Cocktail</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">Cocktail2</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">dovs coocktail</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipe.html">teas-cocktail</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+
+	</table>	
+		
+</body>
+</html>

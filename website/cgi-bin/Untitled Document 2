@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+# PERL MODULES WE WILL BE USING
+use DBI;
+use DBD::mysql;
+use dh_utils qw( updatePage sqlQueryHandler );
+
+my $table
+my $query = "SELECT CocktailName FROM Cocktails";
+my $columns = "\$CocktailName";
+
+# LOOP THROUGH RESULTS AND CREATE A LIST FOR THE SEARCH BY NAME LIST
+my $params="<datalist id=\"cocktailList\">\n";
+
+while ($query_handle->fetch())
+{
+        $params.="<option value=\"$CocktailName\">\n";
+}
+
+$params.="</datalist>\n";
+
+print STDERR $params;
+
+1;

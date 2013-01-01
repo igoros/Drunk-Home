@@ -138,7 +138,7 @@
 			hiddenInput.setAttribute("type","hidden");
 			hiddenInput.setAttribute("form","retrunForm");
 			hiddenInput.setAttribute("value",ingId);<!--chang to ingId-->
-			hiddenInput.setAttribute("name","ing");
+			hiddenInput.setAttribute("name",divIdName);
 			divIdName=divIdName+"h";
 			hiddenInput.setAttribute("id",divIdName);
 			fD.appendChild(hiddenInput);
@@ -200,11 +200,9 @@
 
 </head>
 <body>
-	<form id="retrunForm" name="retrunForm" method="post" action="cgi-bin/resultsByIng.cgi"> 
-		<div id="formDiv">
-		
-		</div>
-	
+	<form id="retrunForm" name=id="retrunForm" action="cgi-bin/resultsByIng.cgi"> 
+		<div id="formDiv"></div>
+	</form>
 
 	<datalist id="inglist">
 <option value="Vodka">
@@ -271,28 +269,7 @@
 
 					</div>
 					<div id="sub2"style="display: none;" class="sublist">
-						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Vodka')">Vodka</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Whiskey')">Whiskey</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Orange Juice')">Orange Juice</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Rum')">Rum</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cola')">Cola</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Beer')">Beer</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Coffe Liqueur')">Coffe Liqueur</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cream')">Cream</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Irish Cream')">Irish Cream</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Grand Marnier')">Grand Marnier</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Kahula')">Kahula</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Brandy')">Brandy</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Milk')">Milk</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Sugar')">Sugar</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('ice')">ice</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('lemon juice')">lemon juice</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Piss')">Piss</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('')"></a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cognac')">Cognac</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('1')">1</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Redbull')">Redbull</a><br>
-
+						CATLIST2
 					
 					</div>
 					<div id="sub3"style="display: none;" class="sublist">
@@ -321,6 +298,5 @@
 			</th>
 		</tr>
 	</table>
-	</form>
 </body>
 </html>

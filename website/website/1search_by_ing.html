@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home search by ing page</title>
+	<meta charset="UTF-8">	
+	
+		
+	<style>	
+		<!--
+		A:link {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:visited {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:active {COLOR: black; TEXT-DECORATION: none }
+		A:hover {COLOR: red; TEXT-DECORATION: none; font-weight: none }
+		-->
+		
+		.center{
+		margin-left: -50%;
+				margin-left:auto;
+				margin-right:auto;
+				vertical-align:bottom;
+		}
+		
+		html, body
+		{
+		  height: 100%;
+		  
+		}
+		
+	</style>
+	
+	<script>
+	
+	
+	var counter=0;
+   //formDiv
+   function addEvent(add_s) {
+	document.getElementById("search").value="";
+    var myD = document.getElementById('myDiv');
+	
+    var divIdName = "ing"+counter;
+    var newdiv = document.createElement('div');
+    newdiv.setAttribute("id",divIdName);
+    newdiv.innerHTML = "<a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">"+add_s+"</a>";
+    myD.appendChild(newdiv);
+	
+	var fD = document.getElementById('formDiv');
+	var hiddenInput = document.createElement('input');
+	hiddenInput.setAttribute("type","hidden");
+	hiddenInput.setAttribute("form","retrunForm");
+	hiddenInput.setAttribute("value",add_s);
+	hiddenInput.setAttribute("name",divIdName);
+	
+	fD.appendChild(hiddenInput);
+	counter++;
+    }
+   
+    function removeElement(divNum) {
+    var d = document.getElementById('myDiv');
+    var olddiv = document.getElementById(divNum);
+    d.removeChild(olddiv);
+    }
+	
+	<!---------------------------------------------------------
+	<!------------expanding menu-------------------------------
+	<!---------------------------------------------------------
+	function expandMenu(menuID)
+	{
+		// close all menus
+		for(var i = 0; i < arMenu.length; i++)
+		{
+			document.getElementById(arMenu[i][0]).src = "closed.gif";
+
+			for(var j = 1; j < arMenu[i].length; j++)
+			{
+			  document.getElementById(arMenu[i][j]).style.display = "none";
+			}
+		}
+
+	  // show the requested menus submenu's
+	  for(var k = 1; k < arMenu[menuID].length; k++)
+	  {
+		document.getElementById(arMenu[menuID][k]).style.display = "block";
+	  }
+	  document.getElementById(arMenu[menuID][0]).src = "open.gif";
+}
+	
+    </script>
+	
+</head>
+<body>
+	<form id="retrunForm">
+	<div id="formDiv">
+	  <input type="hidden" form="retrunForm" value="vodka" name="ing1">
+	</div>
+	</form>
+
+	<datalist id="inglist">
+		<option value="Beer">
+		<option value="Vodka">
+		<option value="Wisky">
+		<option value="jin">
+		<option value="orange juice">
+		<option value="apple juice">
+		<option value="coffee liqueurs">
+		<option value="cream">
+	</datalist>
+
+	<table width="100%" border="1">
+	<tr>
+        <th width="33%">
+
+		ingreagents:<br>
+		 <div id="myDiv"> </div>
+		</th>
+       
+		<th width="33%">
+		middle
+		</th>
+		
+		<th width="33%">
+		<form id="rightForm">
+			<input type="search" id="search" placeholder="search" list="inglist">
+			<input type="button" id="addBotton" value="add">
+			<script>
+			document.getElementById("addBotton").onclick = function() { addEvent(document.getElementById("search").value)}
+			</script>
+		</form>
+		</th>
+	</tr>
+	</table>
+		<div class="center">
+			<input type="submit" id="searchBotton" value="search" form="retrunForm" action="cgi-bin/resultsByIng.cgi">
+		</div>
+
+</body>
+</html>
+
+<!-- 
+
+	<SCRIPT type="text/javascript">
+		var printList="";
+		var counter=0;
+		var myList = new Array();
+	function myPrint(add_s)
+	{
+		document.getElementById("search").value="";
+	
+		var printList="";
+		myList[counter]="<br>" + "<a id=\""+counter+"\" onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"removeElement("+counter+");\">" + add_s + "</a>";
+
+		document.getElementById('testID').innerHTML="ingreagents: <br>" + myList;
+		
+		document.getElementById(counter).onclick = function() { remove(counter)}
+		counter++;
+	}
+	function addEvent(add_s) {
+    var ni = document.getElementById('myDiv');
+ 
+    var divIdName = "my"+counter+"Div";
+    var newdiv = document.createElement('div');
+    newdiv.setAttribute("id",divIdName);
+    newdiv.innerHTML = "<a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">"+add_s+"</a>";
+    ni.appendChild(newdiv);
+	counter++;
+    }
+
+	function removeElement(divNum) {
+    var d = document.getElementById('myDiv');
+    var olddiv = document.getElementById(divNum);
+    d.removeChild(olddiv);
+    }
+	</script>
+
+--!>

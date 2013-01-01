@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home - Home Page</title>
+	<meta charset="UTF-8">
+
+	<STYLE type="text/css">
+			
+		IMG.displayed
+		 {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width:15%;
+		}
+	
+		.frame
+		{
+			minheight:100%;
+			width:100%;
+			height:350px;
+			display:box;
+			box-orient:horizontal;
+			box-pack:center;
+			box-align:center;
+			border: 0px none transparent;
+			background-color: transparent;
+			
+			padding: 0px;
+			overflow: hidden;
+			
+			
+		}
+
+		.bg {
+		border: 0px none transparent;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -5000;}
+
+		.A
+		{
+			text-decoration:none;
+		}
+
+		<!--
+		A:link {COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+		A:visited {COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+		A:active {COLOR: white; TEXT-DECORATION: none }
+		A:hover {COLOR: red; TEXT-DECORATION: none; font-weight: none }
+		-->
+	</STYLE>
+</head>
+<body> 
+	<img src="pic/Background.jpg" class="bg" alt="background">
+	<span style="font-size: 150%" class="a">
+		<a href="http://drunkathome.no-ip.org/">Home</a>&nbsp;&nbsp;
+		<a href="search_by_name.html" target="myFrame">Search By Name</a>&nbsp;&nbsp;
+		<a href="search_by_ing.html" target="myFrame">Search By Ingredeints</a>
+	</span>
+	
+	<div>
+		<a href="http://drunkathome.no-ip.org/">
+		<img src="pic/logo.gif" alt="logo" class="displayed"/></a> 
+	</div>
+	<div>
+		<iframe name="myFrame" src="home.html"  class="frame"></iframe>
+	</div>
+</body>
+</html>
+

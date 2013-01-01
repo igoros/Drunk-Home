@@ -57,25 +57,6 @@
 		ingredients<br>
 	  
 			<datalist id="inglist">
-<option value="bacardi" id="16">
-<option value="Beer" id="6">
-<option value="Brandy" id="14">
-<option value="Coffe Liqueur" id="7">
-<option value="Cognac" id="17">
-<option value="Cola" id="5">
-<option value="Cream" id="8">
-<option value="Grand Marnier" id="10">
-<option value="ice" id="20">
-<option value="Irish Cream" id="9">
-<option value="Kahula" id="11">
-<option value="Milk" id="18">
-<option value="Orange Juice" id="3">
-<option value="Rum" id="4">
-<option value="Sugar" id="19">
-<option value="Vodka" id="1">
-<option value="Whiskey" id="2">
-</datalist>
-
 
 			1.
 			<input type="text" name="ing1" list="inglist" autocomplete="off" required="required"/><br>
@@ -105,32 +86,6 @@
 		<form name="ingForm" method="post" action="cgi-bin/addIng.cgi" target="myFrame"> 
 		
 		<datalist id="group">
-<option value="Vodka" id="1">
-<option value="Whiskey" id="2">
-<option value="Orange Juice" id="3">
-<option value="Rum" id="4">
-<option value="Cola" id="5">
-<option value="Beer" id="6">
-<option value="Coffe Liqueur" id="7">
-<option value="Cream" id="8">
-<option value="Irish Cream" id="9">
-<option value="Grand Marnier" id="10">
-<option value="Brandy" id="14">
-<option value="Milk" id="18">
-<option value="Sugar" id="19">
-<option value="ice" id="20">
-<option value="lemon juice" id="21">
-<option value="Piss" id="22">
-<option value="" id="26">
-<option value="1" id="38">
-<option value="test-ing" id="44">
-<option value="test-ing1" id="45">
-<option value="test-ing3" id="47">
-<option value="test-ing4" id="48">
-<option value="test-ing5" id="49">
-<option value="test-ing6" id="50">
-</datalist>
-
 
 		ingredient name<br>
 		<input type="text" name="ingName" required="required"> <br><br>
