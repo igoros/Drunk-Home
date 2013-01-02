@@ -1,0 +1,60 @@
+Unitest - Add ingredient functionality
+
+In order to test this module we have created 2 scripts:
+
+* addIngTest.pl - this script expects to receive 2 parameters - ingredient name and value* (0/1 for false/true).
+  first step: checking if the ingredient already exists. if exists and value = 1, test passed. else, failed.
+  second step: if not exists, try to add and check if was added. if was added, test passed. else, failed.
+  note - if cocktail was added during the test, the script will remove it afterwards.
+
+* addIngUnitTesting.pl - this script accept endless number of tests and execute them.
+  This script expects to receive cocktails names and values* seperated by space. 
+
+for example, the next command will check the names "fuel", "Whiskey" and "Vodka" , each main on both possibilities - exists and not exist:
+
+./addIngUnitTesting.pl fuel 0 fuel 1 Whiskey 0 Whiskey 1 Vodka 0 Vodka 1
+ 
+.
+======================
+test 1 where ingredient is fuel:
+the ingredient was enter successfully into the DB!
+Test OK!
+
+======================
+test 2 where ingredient is fuel:
+the ingredient was enter successfully into the DB!
+unexpected result to test!
+
+======================
+test 3 where ingredient is Whiskey:
+The ingredient is already in the system
+unexpected result to test!
+
+======================
+test 4 where ingredient is Whiskey:
+The ingredient is already in the system
+Test OK
+
+======================
+test 5 where ingredient is Vodka:
+The ingredient is already in the system
+unexpected result to test!
+
+======================
+test 6 where ingredient is Vodka:
+The ingredient is already in the system
+Test OK
+
+======================
+
+Explenation to the tests:
+
+tests 1 and 2 - actual status: the ingredient is not in the database
+	test 1 went OK as we entered value=0
+	test 2 failed as we entered value=1
+
+tests 3 and 4 = actual status: the ingredient is in the database
+	test 3 failed as we entered value=0
+	test 4 went OK as we entered value=1
+
+tests 5 and 6 as we explained about tests 3 and 4.
