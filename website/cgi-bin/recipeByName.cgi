@@ -7,12 +7,16 @@ use DBD::mysql;
 use Data::Dumper;
 use dh_utils qw( form2data updatePage sqlQueryHandler );
 
+#my $FormData = "myCocktailSearch=B-28";
 # Read the standard input (sent by the form):
 read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
 #print Dumper $FormData;
+
 my $list={'myCocktailSearch'=>""};
 
 &form2data($FormData,$list);
+
+#print Dumper $list;
 
 ##getting the ID of the cocktail
 
@@ -37,19 +41,49 @@ my ($ingsIDs,$recipeText)=$recipeHandler->fetchrow();
 
 ##splitting the ingredients into array and preparing the string for the replacement
 my @ings = split (';', $ingsIDs);
-my $getIng;
-my $ingHandler;
-my $ingName;
+my $getMainIng;
+my $getRecIng;
+my $mainIngHandler;
+my $recIngHandler;
+my $mainIngName;
+my $recIngName;
+my ($mainIngID,$recIngID);
 my $ingString="<br>Ingredients:<br>\n";
 foreach my $ing (@ings)
 {
 	if($ing)
 	{
-		$getIng = "SELECT IngredientName FROM Ingredients WHERE IngredientID=$ing";
-		$ingHandler = &sqlQueryHandler($getIng, "YES");
-		$ingHandler->bind_columns(undef, \$ingName);
-		$ingHandler->fetch();
-		$ingString .= "$ingName<br>\n";
+		if ($ing =~ /(.*?):(.*)/)
+		{
+			($mainIngID,$recIngID) = ($1,$2);
+		}
+		else
+		{
+			$mainIngID = $ing;
+		}
+		print STDERR "Before getting the main ingredient name. mainID=$mainIngID, ing of foreach=$ing\n";
+		$getMainIng = "SELECT IngredientName FROM Ingredients WHERE IngredientID=$mainIngID";
+		$mainIngHandler = &sqlQueryHandler($getMainIng, "YES");
+		$mainIngHandler->bind_columns(undef, \$mainIngName);
+		$mainIngHandler->fetch();
+		$ingString .= "$mainIngName";
+
+		if ($recIngID)
+		{
+			$getRecIng = "SELECT IngredientName FROM Ingredients WHERE IngredientID=$recIngID";
+			$recIngHandler = &sqlQueryHandler($getRecIng, "YES");
+			$recIngHandler->bind_columns(undef, \$recIngName);
+			$recIngHandler->fetch();
+			$ingString .= "(Recommended: $recIngName)</br>\n";
+		}
+		else
+		{
+			$ingString .= "</br>\n";
+		}
+		$mainIngName = "";
+		$recIngName = "";
+		$recIngID = 0;
+		$mainIngID = 0;
 	}
 }
 

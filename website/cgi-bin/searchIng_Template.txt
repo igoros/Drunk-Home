@@ -138,7 +138,7 @@
 			hiddenInput.setAttribute("type","hidden");
 			hiddenInput.setAttribute("form","retrunForm");
 			hiddenInput.setAttribute("value",ingId);<!--chang to ingId-->
-			hiddenInput.setAttribute("name",divIdName);
+			hiddenInput.setAttribute("name","ing");
 			divIdName=divIdName+"h";
 			hiddenInput.setAttribute("id",divIdName);
 			fD.appendChild(hiddenInput);
@@ -200,9 +200,9 @@
 
 </head>
 <body>
-	<form id="retrunForm" name=id="retrunForm" action="cgi-bin/resultsByIng.cgi"> 
+	<form id="retrunForm" name="retrunForm" method="POST" action="cgi-bin/resultsByIng.cgi"> 
 		<div id="formDiv"></div>
-	</form>
+        </form>
 
 	INGREDIENTLIST
 	<div id="errores"></div>

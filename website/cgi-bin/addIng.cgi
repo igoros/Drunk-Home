@@ -11,6 +11,10 @@ use dh_utils qw( form2data updatePage sqlQueryHandler );
 # Read the standard input (sent by the form):
 read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
 #print Dumper $FormData;
+#exit;
+
+#my $FormData = "ingName=Baileys&altName=Irish+Cream&ingsubmit=submit";
+
 my $list={'ingName'=>"",
 	  'category'=>"",
 	  'altName'=>""

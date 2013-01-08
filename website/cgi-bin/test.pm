@@ -8,5 +8,5 @@ use updates qw( updAdminPage updSrchByName updSearchByIng );
 use Data::Dumper;
 
 
-my $results = &updSrchByName;
+my $results = &updSearchByIng;
 print "$results";

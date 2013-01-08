@@ -39,13 +39,13 @@ foreach my $userIng (@userIngs)##get the main ingredient ID and create an array 
 		if ($altID != 0)
 		{
 			push (@userMainIngs, "$altID:$userIng");
-			$userIngsString .= "$altID:$userIng;";
+			$userIngsString .= "$altID:$userIng-";
 		}
 	}
 	else
 	{	
 		push (@userMainIngs, $userIng);
-		$userIngsString .= "$userIng;";
+		$userIngsString .= "$userIng-";
 	}
 }
 
@@ -113,6 +113,10 @@ my $cockNameQuery;
 my $cockNameHandler;
 my $cocktailsList = "";
 
+my $timestamp = time();
+my $random_num = int(rand(9999999)+1);
+my $temp_html = "../results/results$timestamp$random_num.html";
+
 foreach my $val_cock (@validatedCocks)
 {	
 	if ((!$val_cock)){last;}
@@ -124,7 +128,7 @@ foreach my $val_cock (@validatedCocks)
 	if($debug){print STDERR "name= $cockNameQuery\n";}
 	$cockNameHandler = &sqlQueryHandler($cockNameQuery, "YES");
 	$cockName= $cockNameHandler->fetchrow();
-	my $recipeParams = "param=$val_cock_$userIngsString";
+	my $recipeParams = "param="."$val_cock"."--"."$userIngsString"."-"."$temp_html";
 	my $cockPattern="<table class=\"bord\">
                         <tr>
                         <td rowspan=\"2\" >
@@ -148,9 +152,9 @@ foreach my $val_cock (@validatedCocks)
 	$cockPattern =~ s/RECIPE_PARAM/$recipeParams/;
 	$cocktailsList .= "$cockPattern\n";
 }	
-my $timestamp = time();
-my $random_num = int(rand(9999999)+1);
-my $temp_html = "results$timestamp$random_num";
+#my $timestamp = time();
+#my $random_num = int(rand(9999999)+1);
+#my $temp_html = "results/results$timestamp$random_num";
 
 
 &updatePage("results_template.txt", $temp_html, $cocktailsList, "COCKTAILSLIST");
