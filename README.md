@@ -26,5 +26,8 @@ Report your bugs to: igoros@post.jce.ac.il (drunk at home email coming soon...)
 
 ### FOR DEVELOPERS: ###
 
-ATM the project is in early stage of development,
-come back to this page in a few weeks for early development instructions 
+Downloading & Building the Android App:
+
+* You MUST have the Android SDK installed 
+
+download the sources from [HERE](https://github.com/igoros/Drunk-Home/tree/master/Android%20App/Source)
