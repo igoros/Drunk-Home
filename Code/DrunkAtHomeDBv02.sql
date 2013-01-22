@@ -1,6 +1,11 @@
 -- @dovtu: added "Trivial" enum field to Ingredients Table, Trivial Ingredients are best described be example: suger, salt, ice, etc
 -- @dovtu: added "Basic" enum field to Ingredients Table, basic Ingredients are best described by example: Juices, Cola, etc...
 -- @dovtu: changed 'add_blank_pic_path_here' to the actual no_pic.gif on the server
+-- @mosheshpilman: @dovtu's changes were correct although partial, we have to completly split the "comments" table to 2 tables
+-- @mosheshpilman: I split Comments table to: 1. Comments 2. rating, before I split it didnt make any sense at all,
+-- @mosheshpilman: for each comment there was ITS OWN RATING which ment that there can be 1+ diffrent ratings, all unconnected...
+-- @mosheshpilman: also added the 'alter table' command to add foreign key to the new table "Rating".
+
 -- -----------------------------------------------------
 -- Table mydb.Cocktails
 -- -----------------------------------------------------
@@ -38,11 +43,15 @@ CREATE  TABLE IF NOT EXISTS Recipes (
 -- -----------------------------------------------------
 -- Table mydb.Comments
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS Comments 
-(
-  CocktailID INT(10),
-  Rating FLOAT(4) NULL ,
-  CommentText VARCHAR(100) NULL
+CREATE TABLE IF NOT EXISTS Comments (
+  CocktailID int(10) DEFAULT NULL,
+  Text varchar(300) DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Rating (
+  CocktailID int(10) DEFAULT NULL,
+  CurrentRating float DEFAULT NULL,
+  Votes int(10) DEFAULT NULL
 );
 
 
@@ -76,3 +85,7 @@ ALTER TABLE Comments
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION;
 
+ALTER TABLE Comments
+	ADD FOREIGN KEY (CocktailID) REFERENCES Cocktails (CocktailID)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION;
