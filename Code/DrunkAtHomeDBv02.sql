@@ -5,7 +5,8 @@
 -- @mosheshpilman: I split Comments table to: 1. Comments 2. rating, before I split it didnt make any sense at all,
 -- @mosheshpilman: for each comment there was ITS OWN RATING which ment that there can be 1+ diffrent ratings, all unconnected...
 -- @mosheshpilman: also added the 'alter table' command to add foreign key to the new table "Rating".
-
+-- @igoros: all your changes are relevamt and correct, but you forgot 1 critical thing... we changed the DB format to UTF-8 so that we can have special chars inside recipes/comments...
+-- @igoros: i added the 'DEFAULT CHARSET=utf8' to all tables...
 -- -----------------------------------------------------
 -- Table mydb.Cocktails
 -- -----------------------------------------------------
@@ -14,7 +15,7 @@ CREATE  TABLE IF NOT EXISTS Cocktails
   CocktailID INT(10),
   CocktailName VARCHAR(100) NOT NULL ,
   PRIMARY KEY (CocktailID)
-);
+)DEFAULT CHARSET=utf8;
 
 -- -----------------------------------------------------
 -- Table mydb.Pictures
@@ -24,7 +25,7 @@ CREATE  TABLE IF NOT EXISTS Pictures
   CocktailID INT(10),
   PicturePath VARCHAR(100) NOT NULL DEFAULT 'no_pic.gif' ,
   PRIMARY KEY (CocktailID)
-);
+)DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -36,7 +37,7 @@ CREATE  TABLE IF NOT EXISTS Recipes (
   IngredientIDs VARCHAR(1000) NOT NULL ,
   RecipeText VARCHAR(10000) NULL
 
-);
+)DEFAULT CHARSET=utf8;
 
 
 
@@ -46,13 +47,13 @@ CREATE  TABLE IF NOT EXISTS Recipes (
 CREATE TABLE IF NOT EXISTS Comments (
   CocktailID int(10) DEFAULT NULL,
   Text varchar(300) DEFAULT NULL
-);
+)DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS Rating (
   CocktailID int(10) DEFAULT NULL,
   CurrentRating float DEFAULT NULL,
   Votes int(10) DEFAULT NULL
-);
+)DEFAULT CHARSET=utf8;
 
 
 
@@ -67,7 +68,7 @@ CREATE  TABLE IF NOT EXISTS Ingredients
   Basic ENUM('1','0') DEFAULT '0',
   Trivial ENUM('1','0') DEFAULT '0',
   PRIMARY KEY (IngredientID) 
-);
+)DEFAULT CHARSET=utf8;
 
 
 ALTER TABLE Pictures
