@@ -1,3 +1,6 @@
+-- @dovtu: added "Trivial" enum field to Ingredients Table, Trivial Ingredients are best described be example: suger, salt, ice, etc
+-- @dovtu: added "Basic" enum field to Ingredients Table, basic Ingredients are best described by example: Juices, Cola, etc...
+-- @dovtu: changed 'add_blank_pic_path_here' to the actual no_pic.gif on the server
 -- -----------------------------------------------------
 -- Table mydb.Cocktails
 -- -----------------------------------------------------
@@ -14,7 +17,7 @@ CREATE  TABLE IF NOT EXISTS Cocktails
 CREATE  TABLE IF NOT EXISTS Pictures
 (
   CocktailID INT(10),
-  PicturePath VARCHAR(100) NOT NULL DEFAULT 'blank pic path here' ,
+  PicturePath VARCHAR(100) NOT NULL DEFAULT 'no_pic.gif' ,
   PRIMARY KEY (CocktailID)
 );
 
@@ -52,6 +55,8 @@ CREATE  TABLE IF NOT EXISTS Ingredients
   IngredientName VARCHAR(100) NULL ,
   AltID INT(10) ZEROFILL NULL ,
   IngredientID INT(10) NOT NULL ,
+  Basic ENUM('1','0') DEFAULT '0',
+  Trivial ENUM('1','0') DEFAULT '0',
   PRIMARY KEY (IngredientID) 
 );
 
