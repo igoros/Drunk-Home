@@ -6,7 +6,7 @@ use DBD::mysql;
 
 use Data::Dumper;
 use updates qw( updAdminPage );
-use dh_utils qw( form2data updatePage sqlQueryHandler );
+use dh_utils qw( form2data updatePage sqlQueryHandler getRatingPic );
 my $debug = 0;
 # Read the standard input (sent by the form):
 read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
@@ -53,13 +53,20 @@ my @validatedCocks;
 my $cockMainIng;
 my $userMainIng;
 my $mainFlag;
+my ($cockIng,$parts);
+
+my $ingDataQuery;
+my $ingDataHandler;
+my ($category,$trivial,$basic);
+
+
 while(($cockID,$ingsIds,$recipe) = $queryHandler->fetchrow())
 {	$mainFlag = 1;
 	if($debug){print STDERR "checking ID $cockID where ingredient string is $ingsIds\n"};
 	my @cockIngs = split (';',$ingsIds);	
-	foreach my $cockIng (@cockIngs)
+	foreach my $cockIngAndParts (@cockIngs)
 	{	
-		
+		($cockIng,$parts) = split ('#', $cockIngAndParts);	
 		if ($cockIng =~ /(.*?):.*/)
 		{
 			$cockMainIng = $1;
@@ -82,7 +89,13 @@ while(($cockID,$ingsIds,$recipe) = $queryHandler->fetchrow())
 				$userMainIng = $userIng;
 			}
 			if($debug){print STDERR "checking user ing $userMainIng\n";}
-			if ($userMainIng == $cockMainIng)
+
+			##accept ingredient if: 1)category is Garnishes. 2)ing is trivial. 3)the user chose the ing
+
+			$ingDataQuery	= "SELECT Category,Trivial,Basic FROM Ingredients where IngredientID=$cockMainIng";
+			$ingDataHandler = &sqlQueryHandler($ingDataQuery,"YES");
+			($category,$trivial,$basic) = $ingDataHandler->fetchrow();	
+			if ($userMainIng == $cockMainIng || $category eq 'Garnishes' || $trivial==1)
 			{
 				if($debug){print STDERR "found!!! (in if where subflag is set to 1)\n";}
 				$subFlag = 1;	
@@ -112,7 +125,7 @@ my $cockName;
 my $cockNameQuery;
 my $cockNameHandler;
 my $cocktailsList = "";
-
+my $rating;
 my $timestamp = time();
 my $random_num = int(rand(9999999)+1);
 my $temp_html = "../results/results$timestamp$random_num.html";
@@ -124,6 +137,11 @@ foreach my $val_cock (@validatedCocks)
 	if($debug){print STDERR "path query = $picQuery\n";}
 	$picHandler = &sqlQueryHandler($picQuery, "YES");
 	$picPath = $picHandler->fetchrow();
+	if($picPath =~/^$/)
+	{
+        $picPath = "no_pic.gif";
+	}
+	$rating = &getRatingPic($cal_cock);
 	$cockNameQuery = "SELECT CocktailName FROM Cocktails WHERE CocktailID=$val_cock";
 	if($debug){print STDERR "name= $cockNameQuery\n";}
 	$cockNameHandler = &sqlQueryHandler($cockNameQuery, "YES");
@@ -143,20 +161,24 @@ foreach my $val_cock (@validatedCocks)
                         Rank:
                         </td>
                         <td>
-                        <img src=\"../pic/rating_4_5.gif\" alt=\"rating pic\" class=\"reatingPic\">
+                        <img src=\"../pic/RATING\" alt=\"rating pic\" class=\"reatingPic\">
                         </td>
                         </tr>
                 </table>";
 	$cockPattern =~ s/PICPATH/$picPath/;
 	$cockPattern =~ s/COCKNAME/$cockName/;
 	$cockPattern =~ s/RECIPE_PARAM/$recipeParams/;
+	$cockPattern =~ s/RATING/$rating/;
 	$cocktailsList .= "$cockPattern\n";
 }	
 #my $timestamp = time();
 #my $random_num = int(rand(9999999)+1);
 #my $temp_html = "results/results$timestamp$random_num";
 
-
+if (!$cocktailsList)
+{
+	$cocktailsList = "<h2> No results were found...<br>You have to buy more booze!</h2>";
+}
 &updatePage("results_template.txt", $temp_html, $cocktailsList, "COCKTAILSLIST");
 
 system ("cat $temp_html");

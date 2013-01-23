@@ -27,7 +27,7 @@
 
 
 		table {
-			height:90%;;
+			height:90%;
 			width:70%;
 			
 			margin-left:auto;
@@ -45,7 +45,7 @@
 			height:20px;
 			background: -webkit-gradient(linear, left top, left bottombottom, from(#bcbcbe), to(#ffffff));  
 			background: -moz-linear-gradient(top,  #606060,  #8000ff);  
-			border-radius: 10px;}
+			}
 		
 		#searchBotton{vertical-align:bottom;}
 
@@ -93,9 +93,9 @@
 		
 		VAR_ARRAY
 		var indId="";<!--add this line-->
-		var NUM_OF_SUB_MENU=3;
+		var NUM_OF_SUB_MENU=8;
 		function addEvent(add_s) {
-			<!--new-->
+			<!--new-->			
 			
 			var i;
 			var flage=true;
@@ -103,9 +103,15 @@
 			{
 				if(ingNumList[i]==add_s)
 				{
+				
 					i++;
 					ingId=ingNumList[i];
 					flage=false;
+					
+					if(exist(ingId))
+					{
+						flage=true;
+					}
 					break;
 				}
 			}	
@@ -154,6 +160,21 @@
 			var olddiv = document.getElementById(divNum);
 			d1.removeChild(olddiv);}
 
+		function exist(id)
+		{
+			if(counter==0)
+				return 0;
+			
+			var x=document.getElementsByName("ing");
+			for(var i = 0;i<x.length;i++)
+			{
+				if(x[i].value==id)
+				{
+					return 1;
+				}
+			}
+			return 0;
+		}
 		<!---------------------------------------------------------
 		<!------------expanding menu-------------------------------
 		<!---------------------------------------------------------
@@ -200,10 +221,11 @@
 
 </head>
 <body>
-	<form id="retrunForm" name="retrunForm" method="POST" action="cgi-bin/resultsByIng.cgi"> 
-		<div id="formDiv"></div>
-        </form>
-
+	<form id="retrunForm" name="retrunForm" method="post" action="cgi-bin/resultsByIng.cgi"> 
+		<div id="formDiv">
+		
+		</div>
+	</form>
 	INGREDIENTLIST
 	<div id="errores"></div>
 	
@@ -211,41 +233,60 @@
 		<tr>
 			<th>
 				<div class="ingBorder">
-				<u>ingreagents:</u><br>
+				<u>Ingredients:</u><br>
 				<div id="myDiv" class="scroll"> </div>
 				</div>
 			</th>
 
 			<th>
-				<u>choose a category:<br><br></u>
-				<div class="cat"><a href="javascript:;" onclick="openMenu('1')">alcoholic drinks</a></div>
+				<u>Choose a category:<br><br></u>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('1')">Spirits</a></div>
 				<input type="hidden" value="closed" id="hidden1">
-				<div class="cat"><a href="javascript:;" onclick="openMenu('2')">non alcoholic</a><br></div>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('2')">Liqueurs</a><br></div>
 				<input type="hidden" value="closed" id="hidden2">
-				<div class="cat"><a href="javascript:;" onclick="openMenu('3')">soft drinks</a><br></div>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('3')">Mixers</a><br></div>
 				<input type="hidden" value="closed" id="hidden3">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('4')">Wines/Beer</a><br></div>
+                                <input type="hidden" value="closed" id="hidden4">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('5')">Garnishes</a><br></div>
+                                <input type="hidden" value="closed" id="hidden5">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('6')">Syrups</a><br></div>
+                                <input type="hidden" value="closed" id="hidden6">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('7')">Spices</a><br></div>
+                                <input type="hidden" value="closed" id="hidden7">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('8')">Other</a><br></div>
+                                <input type="hidden" value="closed" id="hidden8">
 			</th>
 			
 			<th>
 			<div class="subBorder">
-				<u>choose an ingreagent:</u><br><br>
+				<u>Choose an ingredient:</u><br><br>
 				<div class="scroll">
 				
 					<div id="sub1" style="display: none;" class="sublist">
-					
-						CATLIST1
-
-
+					SPIRITS
 					</div>
 					<div id="sub2"style="display: none;" class="sublist">
-						CATLIST2
-					
+					LIQUEURS	
 					</div>
 					<div id="sub3"style="display: none;" class="sublist">
-						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cola')">Cola</a><br>
-						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Apple Juice')">Apple Juice</a><br>
-						<br>
+					MIXERS
 					</div>
+					<div id="sub4"style="display: none;" class="sublist">
+                                        WINESBEER  
+                                        </div>
+					<div id="sub5"style="display: none;" class="sublist">
+                                        GARNISHES  
+                                        </div>
+					<div id="sub6"style="display: none;" class="sublist">
+                                        SYRUPS
+                                        </div>
+					<div id="sub7"style="display: none;" class="sublist">
+                                        SPICES  
+                                        </div>
+					<div id="sub8"style="display: none;" class="sublist">
+                                        OTHER  
+                                        </div>
 				</div>
 			</div>
 			</th> 

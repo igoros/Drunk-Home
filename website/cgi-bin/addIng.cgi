@@ -13,14 +13,35 @@ read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
 #print Dumper $FormData;
 #exit;
 
-#my $FormData = "ingName=Baileys&altName=Irish+Cream&ingsubmit=submit";
+#my $FormData = "ingName=Whiskey&altName=&category=Spirits&ingsubmit=submit";
 
 my $list={'ingName'=>"",
 	  'category'=>"",
-	  'altName'=>""
+	  'altName'=>"",
+	  'basic'=>"",
+	  'trivial'=>""
 	};
 
 &form2data($FormData,$list);
+
+if ($list->{trivial} && $list->{basic})
+{
+	print "<p style=\"color:red\">An ingredient can't be both trivial and basic - think about it...(we added trivial for a reason)</p>";
+	exit;
+}
+
+my $trivial;
+
+if($list->{trivial})
+{
+        $trivial = "1";
+}
+else
+{
+        $trivial = "0";
+}
+
+
 
 my $query;
 #CHECK IF INGREDIENT ALREADY EXISTS
@@ -30,6 +51,15 @@ my $checkReturn = &sqlQueryHandler($checkIfExist, "YES");
 $checkReturn->bind_columns(undef, \$checkVal);
 $checkReturn->fetch();
 my $response;
+my $basic;
+if($list->{basic})
+{
+	$basic = "1";
+}
+else
+{
+	$basic = "0";
+}
 
 if($checkVal)
 {
@@ -43,7 +73,7 @@ elsif ($list->{altName} =~ /\w+/)# IN CASE OF AN ALTERNATIVE NAME
 	$altReturn->fetch();#set the altID into $altID
 	if($altID != 0)
 	{
-        	$query = "INSERT INTO Ingredients (IngredientName,AltID, Category) VALUES ('$list->{ingName}','$altID','$list->{category}')";
+        	$query = "INSERT INTO Ingredients (IngredientName, AltID, Category, Basic, Trivial) VALUES ('$list->{ingName}','$altID','$list->{category}','$basic','$trivial')";
 		$response = "The ingredient was added successfully!";
 		&sqlQueryHandler($query,"YES");
 	}
@@ -54,7 +84,7 @@ elsif ($list->{altName} =~ /\w+/)# IN CASE OF AN ALTERNATIVE NAME
 }
 else  #NO ALT ID
 {
-$query = "INSERT INTO Ingredients (IngredientName, Category) VALUES ('$list->{ingName}','$list->{category}')";#insert without altID
+$query = "INSERT INTO Ingredients (IngredientName, Category, Basic, Trivial) VALUES ('$list->{ingName}','$list->{category}','$basic','$trivial')";#insert without altID
 $response = "The ingredient was added successfully!";
 &sqlQueryHandler($query,"NO");
 }

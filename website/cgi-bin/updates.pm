@@ -28,7 +28,7 @@ sub updAdminPage{
 
 
 	##update alternative name box' list
-	my $altQuery = "SELECT IngredientID,IngredientName FROM Ingredients WHERE AltID IS NULL";
+	my $altQuery = "SELECT IngredientID,IngredientName FROM Ingredients WHERE AltID IS NULL ORDER BY IngredientName";
 	my $alt_handler = &dh_utils::sqlQueryHandler($altQuery, "YES");
 	my $altList = "<datalist id=\"group\">\n";
 	
@@ -44,19 +44,25 @@ sub updAdminPage{
 sub updSrchByName{
 	
 	my ($ID,$name);
-	my $query = "SELECT CocktailID,CocktailName FROM Cocktails";
+	my $query = "SELECT CocktailID,CocktailName FROM Cocktails ORDER BY CocktailName";
 	my $query_handler = &dh_utils::sqlQueryHandler($query, "YES");
 	my $params="<datalist id=\"cocktailList\">\n";
-
+	my $paramsMobile = "<select name=\"cocktailList\" form =\"searchByName\" size=\"5\">\n";
 	while (($ID,$name) = $query_handler->fetchrow())
 	{
        		$params.="\t<option value=\"$name\">\n";
+		$paramsMobile.="\t<option value=\"$name\">$name</option>\n";
 	}
 
 	$params.="</datalist>\n";
-	print STDERR "params = $params\n";
-	&dh_utils::updatePage("search_by_name.txt","../search_by_name.html",$params,"<datalist id=\"cocktailList\">");
+	$params.="<input type=\"search\" name=\"myCocktailSearch\" list=\"cocktailList\" placeholder=\"search\" autocomplete=\"off\" />";
 
+	$paramsMobile.="</select></br>\n";
+	print STDERR "params = $params\n";
+	&dh_utils::updatePage("search_by_name.txt","search_by_name-temp.html",$params,"<datalist id=\"cocktailList\">");
+	&dh_utils::updatePage("search_by_name.txt","search_by_name-mobile-temp.html",$paramsMobile,"<datalist id=\"cocktailList\">");
+	&dh_utils::updatePage("search_by_name-temp.html","../search_by_name.html","wvsubmit","SOURCE");
+	&dh_utils::updatePage("search_by_name-mobile-temp.html","../search_by_name-mobile.html","mobilesubmit","SOURCE");
 }
 
 sub updSearchByIng{
@@ -65,7 +71,13 @@ sub updSearchByIng{
         my $ingList = "<datalist id=\"inglist\">\n";
         my $catList1= "";
 	my $catList2= "";
-	my $ingQuery = "SELECT IngredientId,IngredientName,Category From Ingredients"; 
+        my $catList3= "";
+        my $catList4= "";
+        my $catList5= "";
+        my $catList6= "";
+        my $catList7= "";
+        my $catList8= "";
+	my $ingQuery = "SELECT IngredientId,IngredientName,Category From Ingredients ORDER BY IngredientName"; 
 	my $ingHandler = &dh_utils::sqlQueryHandler($ingQuery,"YES");
 	my ($ingId,$ingName,$category);
 	my $flag = 0;
@@ -79,22 +91,56 @@ sub updSearchByIng{
 		}
 		$ingList .= "<option value=\"$ingName\">\n";
 		$arrayList .= "\"$ingName\",\"$ingId\"";
-		if ($category eq "alc")
+		if ($category eq "Spirits")
 		{
 			$catList1 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
 		}
-		else
+		elsif($category eq "Liqueurs")
 		{
 			$catList2 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
 		}
+                elsif($category eq "Mixers")
+                {
+                        $catList3 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
+                }
+                elsif($category eq "Wines/Beer")
+                {
+                        $catList4 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
+                }
+                elsif($category eq "Garnishes")
+                {
+                        $catList5 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
+                }
+                elsif($category eq "Syrups")
+                {
+                        $catList6 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
+                }
+                elsif($category eq "Spices")
+                {
+                        $catList7 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
+                }
+                else
+                {
+                        $catList8 .= "<a onmouseover=\"\" style=\"cursor: pointer;\" onclick=\"addEvent('$ingName')\">$ingName</a><br>\n";
+                }
 	}
 #	print STDERR "ingList = $ingList\narray=$arrayList\ncetegory1=$catList1\ncategory2=$catList2\n";
 	$arrayList .= "]";
 	$ingList .= "</datalist>\n";
 	&dh_utils::updatePage("searchIng_Template.txt","temp_searchIng.html",$arrayList,"VAR_ARRAY");
 	&dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$ingList,"INGREDIENTLIST");
-	&dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList1,"CATLIST1");
-	&dh_utils::updatePage("temp_searchIng.html","../search_by_ing.html",$catList2,"CATLIST2");
+	&dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList1,"SPIRITS");
+	&dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList2,"LIQUEURS");
+        &dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList3,"MIXERS");
+        &dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList4,"WINESBEER");
+        &dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList5,"GARNISHES");
+        &dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList6,"SYRUPS");
+        &dh_utils::updatePage("temp_searchIng.html","temp_searchIng.html",$catList7,"SPICES");
+        &dh_utils::updatePage("temp_searchIng.html","../search_by_ing.html",$catList8,"OTHER");
+        &dh_utils::updatePage("temp_searchIng.html","../search_by_ing-mobile.html",$catList8,"OTHER");
+
+
+
 
 }
 

@@ -54,26 +54,26 @@
 			<input type="text" name="CocktailName" placeholder="Type Here" required="required"> <br><br>
 		recipe<br>
 			<textarea rows="10" cols="40" name="recipe"  required="required"></textarea> <br><br>
-		ingredients<br>
+		Ingredients:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parts:(if you don't want to enter parts, enter 0)<br>
 	  
 			<datalist id="inglist">
 
 			1.
-			<input type="text" name="ing1" list="inglist" autocomplete="off" required="required"/><br>
+			<input type="text" name="ing1" list="inglist" autocomplete="off" required="required"/> <input type="text" name="part1" required="required"/> <br>
 			2.
-			<input type="text" name="ing2" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing2" list="inglist" autocomplete="off"/> <input type="text" name="part2"/> <br>
 			3.
-			<input type="text" name="ing3" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing3" list="inglist" autocomplete="off"/> <input type="text" name="part3"/> <br>
 			4.
-			<input type="text" name="ing4" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing4" list="inglist" autocomplete="off"/> <input type="text" name="part4"/> <br>
 			5.
-			<input type="text" name="ing5" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing5" list="inglist" autocomplete="off"/> <input type="text" name="part5"/> <br>
 			6.
-			<input type="text" name="ing6" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing6" list="inglist" autocomplete="off"/> <input type="text" name="part6"/> <br>
 			7.
-			<input type="text" name="ing7" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing7" list="inglist" autocomplete="off"/> <input type="text" name="part7"/> <br>
 			8.
-			<input type="text" name="ing8" list="inglist" autocomplete="off"/><br>
+			<input type="text" name="ing8" list="inglist" autocomplete="off"/> <input type="text" name="part8"/> <br>
     
 		<br><br>
 		<input type="submit" name="cocktailsubmit" value="submit"> 
@@ -87,20 +87,29 @@
 		
 		<datalist id="group">
 
-		ingredient name<br>
+		Ingredient Name<br>
 		<input type="text" name="ingName" required="required"> <br><br>
 		
-		category<br>
-		<select name="category" form="ingForm" required="required">
-		<option value="alc">alc</option>
-		<option value="non alc">non alc</option>
+		Category<br>
+		<select name="category" required="required">
+		<option value="Spirits">Spirits</option>
+		<option value="Liqueurs">Liqueurs</option>
+		 <option value="Mixers">Mixers</option>
+		 <option value="Wines/Beer">Wines/Beer</option>
+		 <option value="Garnishes">Garnishes</option>
+		<option value="Syrups">Syrups</option>
+		<option value="Spices">Spices</option>
+		<option value="Other">Other</option>
 		</select><br><br>
 		
-		alternative name<br>
+		Alternative Name<br>
 		<input type="text" name="altName" list="group" autocomplete="off"> <br><br>
 		
-		basic
+		Basic
 		<input type="checkbox" name="basic"><br><br>
+
+		Trivial
+		<input type="checkbox" name="trivial"><br><br>
 		
 		<!--submit-->
 		<input type="submit" name="ingsubmit" value="submit"> 

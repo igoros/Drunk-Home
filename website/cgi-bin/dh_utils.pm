@@ -7,8 +7,8 @@ package dh_utils;
 require Exporter;
 
 our @ISA= qw( Exporter );
-our @EXPORT_OK= qw( updatePage form2data sqlQueryHandler );
-our @EXPORT= qw( updatePage form2data sqlQueryHandler );
+our @EXPORT_OK= qw( updatePage form2data sqlQueryHandler getRatingPic getComments );
+our @EXPORT= qw( updatePage form2data sqlQueryHandler getRatingPic getComments);
 
 sub updatePage{
    my $template;
@@ -27,7 +27,7 @@ sub updatePage{
    }
    close(DATA);
 
-   $oldFileContent =~ s/$pattern/$replacement/;
+   $oldFileContent =~ s/$pattern/$replacement/g;
 
    open(DATA,">$fileName");
    print DATA "$oldFileContent";
@@ -77,7 +77,7 @@ my $dsn = "dbi:$platform:$database:$host:$port";
 my $connect = DBI->connect($dsn, $user, $pw);
 # PREPARE THE QUERY
 #my $query = "$query";
-
+print STDERR "query=$query\n";
 $query_handle = $connect->prepare($query);
 # EXECUTE THE QUERY
 $query_handle->execute();
@@ -89,6 +89,119 @@ if($feedback =~ /YES/)
 return $query_handle;
 }
 }
+
+sub getRatingPic{
+	
+	my $cockID = shift;
+	
+	my $isRatedQuery = "SELECT COUNT(*) FROM Rating WHERE CocktailID=$cockID";
+	my $isRatedHandler = &sqlQueryHandler($isRatedQuery,"YES");
+	my $ratedCount = $isRatedHandler->fetchrow();
+
+	if($ratedCount == 0)
+	{
+         	return "rating_2_5.gif";
+	}
+
+        my $currRating;
+        my $ratingQuery = "SELECT CurrentRating from Rating WHERE CocktailID=$cockID";
+        my $ratingHandler = &sqlQueryHandler($ratingQuery, "YES");
+        $currRating= $ratingHandler->fetchrow(); 
+	if($currRating < 0.25)
+	{
+		return "rating_0.gif";
+	}
+	elsif($currRating < 0.75)
+	{
+		return "rating_0_5.gif";
+	}
+	elsif($currRating <1.25)
+	{
+		return "rating_1.gif";
+	}
+	elsif($currRating < 1.75)
+	{
+		return "rating_1_5.gif";
+	}
+	elsif($currRating < 2.25)
+	{
+		return "rating_2.gif";
+	}
+	elsif($currRating < 2.75)
+	{
+		return "rating_2_5.gif";
+	}
+	elsif($currRating < 3.25)
+	{
+		return "rating_3.gif";
+	}
+	elsif($currRating <3.75)
+	{
+		return "rating_3_5.gif";
+	}
+	elsif($currRating < 4.25)
+	{
+		return "rating_4.gif";
+	}
+	elsif($currRating < 4.75)
+	{
+		return "rating_4_5.gif";
+	}
+	else
+	{
+		return "rating_5.gif";
+	}
+
+}
+
+
+sub getComments{
+
+	my $commentsString = "";
+	my $comment;
+	my $cockID = shift;
+	my $commentsQuery = "SELECT Text from Comments WHERE CocktailID=$cockID";
+	my $commentsHandler = &sqlQueryHandler($commentsQuery, "YES");
+	
+	while($comment = $commentsHandler->fetchrow())
+	{
+		$commentsString .="     <tr colspan=\"2\" border=\"1\">
+        				 	<td>
+	        				<div class=\"myBorder\">
+        					Comment:<br>
+  					      	$comment
+        					</div>
+ 					       </td>
+        				</tr>"
+	}
+
+	return $commentsString;
+}
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,15 +1,29 @@
 #!/usr/bin/perl
-print "Content-type:text/html\n\n";
+#print "Content-type:text/html\n\n";
 # PERL MODULES WE WILL BE USING
 use DBI;
 use DBD::mysql;
 
 use Data::Dumper;
-use dh_utils qw( form2data updatePage sqlQueryHandler );
-
+use dh_utils qw( form2data updatePage sqlQueryHandler getRatingPic getComments );
+#print "got to second script";
 use CGI;
 my $cgi = CGI->new();
 my $param = $cgi->param('param');
+if(!$param)
+{
+	my $data =  shift;
+	#print Dumper $data;
+	if($data =~ /param=(.*)/)
+	{
+		$param = $1;
+	}
+}
+else
+{
+	print "Content-type:text/html\n\n";
+}
+#print "input $userinput";
 #print Dumper $param;
 #exit;
 #my $param = "33--9:53-4:16-14";
@@ -39,9 +53,11 @@ my $optIngName;
 my $mainIngID;
 my $recIngID;
 my $optIngID;
+my ($ing,$parts);
 my $ingString="<br>Ingredients:<br>\n";
-foreach my $ing (@ings)
+foreach my $ingAndParts (@ings)
 {
+	($ing,$parts) = split ('#',$ingAndParts);
 	if($ing)
 	{
 		if($ing =~ /(.*?):(.*)/)
@@ -84,8 +100,14 @@ foreach my $ing (@ings)
 		$mainIngHandler = &sqlQueryHandler($getMainIng, "YES");
 		$mainIngHandler->bind_columns(undef, \$mainIngName);
 		$mainIngHandler->fetch();
-		$ingString .= "$mainIngName";
-
+		if($parts != 0)
+		{
+			$ingString .= "$parts"." parts of "."$mainIngName";
+		}
+		else
+		{
+			$ingString .= "$mainIngName";
+		}
 
 		if($recIngName && $optIngName)
 		{
@@ -119,6 +141,17 @@ my $picHandler = &sqlQueryHandler($getPic, "YES");
 my $picPath;
 $picHandler->bind_columns(undef,\$picPath);
 $picHandler->fetch();
+if($picPath =~/^$/)
+{
+        $picPath = "no_pic.gif";
+}
+##get rating
+
+my $rating = &getRatingPic($cockID);
+
+##get comments
+
+my $commentsString = &getComments($cockID);
 
 ##getting the name of the cocktail
 my $cockName;
@@ -144,6 +177,14 @@ $backURL = "<a href=\""."$backURL"."\">Back to results</a>";
 &updatePage($newfile,$newfile,$recipeText,"RECIPE");
 
 &updatePage($newfile,$newfile,$picPath,"COCKPIC");
+
+&updatePage($newfile,$newfile,$rating,"RATING");
+
+&updatePage($newfile,$newfile,$commentsString,"COMMENTS");
+
+&updatePage($newfile,$newfile,"ING##"."$param","RECPARAMS");
+
+#&updatePage($newfile,$newfile,$userIngs,"USERINGS");
 
 system ("cat $newfile");
 

@@ -27,7 +27,7 @@
 
 
 		table {
-			height:90%;;
+			height:90%;
 			width:70%;
 			
 			margin-left:auto;
@@ -45,7 +45,7 @@
 			height:20px;
 			background: -webkit-gradient(linear, left top, left bottombottom, from(#bcbcbe), to(#ffffff));  
 			background: -moz-linear-gradient(top,  #606060,  #8000ff);  
-			border-radius: 10px;}
+			}
 		
 		#searchBotton{vertical-align:bottom;}
 
@@ -91,11 +91,11 @@
 	<script>	
 		var counter=0;
 		
-		var ingNumList = ["Vodka","1","Whiskey","2","Orange Juice","3","Rum","4","Cola","5","Beer","6","Coffe Liqueur","7","Cream","8","Irish Cream","9","Grand Marnier","10","Kahula","11","Brandy","14","bacardi","16","Milk","18","Sugar","19","ice","20","lemon juice","21","Piss","22","Lemonchelo","23","Lemoncelo","24","Lemonncelo","25","","26","Cognac","37","1","38","Redbull","43","test-ing","44","test-ing1","45","test-ing2","46","test-ing3","47","test-ing4","48","test-ing5","49","test-ing6","50","test-ing7","51","Baileys","52","Sheridans","53","Amaretto almond liqueur","54"]
+		var ingNumList = ["Ale Beer","127","Amaretto","119","Bacardi","86","Baileys","114","Beer","125","Bitters","162","Blue Curacao","142","Bourbon","131","Brandy","99","Cherry","163","Cherry Liqueur","160","Cinnamon schnapps","146","Coconut Liqueur","120","Coffee Liqueur","102","Cognac","100","Cointreau","101","Cola","89","Cranberry Juice","96","Cream","106","Cream of Coconut","121","Dark Rum","118","Drambuie","130","Egg White","137","Energy Drink","138","Everclear","135","Gin","115","Golden Rum","117","Goldschlager","156","Grand Marnier","133","Grenadine","148","Ice Cubes","93","Irish Cream","112","Jagermeister","155","Kahlua","104","Lager Beer","128","Lemon Juice","91","Lemon Rind","108","Lemon Slice","109","Lime Juice","97","Lime Rind","98","Lime Slice","110","Malibu","144","Martini","149","Martini Bianco","151","Martini Rosso","150","Mint Sprigs","107","Orange Juice","90","Orange Liqueur","95","Orange Slice","123","Ouzo","147","Peach Schnapps","140","Peppermint schnapps","158","Pernod","152","Pineapple Juice","122","Pisco( grape brandy)","161","Red Bull","139","Rum","85","Salt","116","Sambuca","157","Slice of Orange","94","Soda Water","105","Southern Comfort","153","Sparkling Wine","129","Spirit","134","Stout Beer","126","Sugar","92","Sugar Syrup","124","Sweet And Sour Mix","159","Tabasco","154","Tequila","111","Tomato Juice","141","Triple Sec","113","Vodka","87","Watermelon Schnapps","145","Whiskey","88","White Rum","103","Wine","143"]
 		var indId="";<!--add this line-->
-		var NUM_OF_SUB_MENU=3;
+		var NUM_OF_SUB_MENU=8;
 		function addEvent(add_s) {
-			<!--new-->
+			<!--new-->			
 			
 			var i;
 			var flage=true;
@@ -103,9 +103,15 @@
 			{
 				if(ingNumList[i]==add_s)
 				{
+				
 					i++;
 					ingId=ingNumList[i];
 					flage=false;
+					
+					if(exist(ingId))
+					{
+						flage=true;
+					}
 					break;
 				}
 			}	
@@ -154,6 +160,21 @@
 			var olddiv = document.getElementById(divNum);
 			d1.removeChild(olddiv);}
 
+		function exist(id)
+		{
+			if(counter==0)
+				return 0;
+			
+			var x=document.getElementsByName("ing");
+			for(var i = 0;i<x.length;i++)
+			{
+				if(x[i].value==id)
+				{
+					return 1;
+				}
+			}
+			return 0;
+		}
 		<!---------------------------------------------------------
 		<!------------expanding menu-------------------------------
 		<!---------------------------------------------------------
@@ -200,47 +221,89 @@
 
 </head>
 <body>
-	<form id="retrunForm" name="retrunForm" method="POST" action="cgi-bin/resultsByIng.cgi"> 
-		<div id="formDiv"></div>
-        </form>
-
+	<form id="retrunForm" name="retrunForm" method="post" action="cgi-bin/resultsByIng.cgi"> 
+		<div id="formDiv">
+		
+		</div>
+	</form>
 	<datalist id="inglist">
-<option value="Vodka">
-<option value="Whiskey">
-<option value="Orange Juice">
-<option value="Rum">
-<option value="Cola">
-<option value="Beer">
-<option value="Coffe Liqueur">
-<option value="Cream">
-<option value="Irish Cream">
-<option value="Grand Marnier">
-<option value="Kahula">
-<option value="Brandy">
-<option value="bacardi">
-<option value="Milk">
-<option value="Sugar">
-<option value="ice">
-<option value="lemon juice">
-<option value="Piss">
-<option value="Lemonchelo">
-<option value="Lemoncelo">
-<option value="Lemonncelo">
-<option value="">
-<option value="Cognac">
-<option value="1">
-<option value="Redbull">
-<option value="test-ing">
-<option value="test-ing1">
-<option value="test-ing2">
-<option value="test-ing3">
-<option value="test-ing4">
-<option value="test-ing5">
-<option value="test-ing6">
-<option value="test-ing7">
+<option value="Ale Beer">
+<option value="Amaretto">
+<option value="Bacardi">
 <option value="Baileys">
-<option value="Sheridans">
-<option value="Amaretto almond liqueur">
+<option value="Beer">
+<option value="Bitters">
+<option value="Blue Curacao">
+<option value="Bourbon">
+<option value="Brandy">
+<option value="Cherry">
+<option value="Cherry Liqueur">
+<option value="Cinnamon schnapps">
+<option value="Coconut Liqueur">
+<option value="Coffee Liqueur">
+<option value="Cognac">
+<option value="Cointreau">
+<option value="Cola">
+<option value="Cranberry Juice">
+<option value="Cream">
+<option value="Cream of Coconut">
+<option value="Dark Rum">
+<option value="Drambuie">
+<option value="Egg White">
+<option value="Energy Drink">
+<option value="Everclear">
+<option value="Gin">
+<option value="Golden Rum">
+<option value="Goldschlager">
+<option value="Grand Marnier">
+<option value="Grenadine">
+<option value="Ice Cubes">
+<option value="Irish Cream">
+<option value="Jagermeister">
+<option value="Kahlua">
+<option value="Lager Beer">
+<option value="Lemon Juice">
+<option value="Lemon Rind">
+<option value="Lemon Slice">
+<option value="Lime Juice">
+<option value="Lime Rind">
+<option value="Lime Slice">
+<option value="Malibu">
+<option value="Martini">
+<option value="Martini Bianco">
+<option value="Martini Rosso">
+<option value="Mint Sprigs">
+<option value="Orange Juice">
+<option value="Orange Liqueur">
+<option value="Orange Slice">
+<option value="Ouzo">
+<option value="Peach Schnapps">
+<option value="Peppermint schnapps">
+<option value="Pernod">
+<option value="Pineapple Juice">
+<option value="Pisco( grape brandy)">
+<option value="Red Bull">
+<option value="Rum">
+<option value="Salt">
+<option value="Sambuca">
+<option value="Slice of Orange">
+<option value="Soda Water">
+<option value="Southern Comfort">
+<option value="Sparkling Wine">
+<option value="Spirit">
+<option value="Stout Beer">
+<option value="Sugar">
+<option value="Sugar Syrup">
+<option value="Sweet And Sour Mix">
+<option value="Tabasco">
+<option value="Tequila">
+<option value="Tomato Juice">
+<option value="Triple Sec">
+<option value="Vodka">
+<option value="Watermelon Schnapps">
+<option value="Whiskey">
+<option value="White Rum">
+<option value="Wine">
 </datalist>
 
 	<div id="errores"></div>
@@ -249,47 +312,134 @@
 		<tr>
 			<th>
 				<div class="ingBorder">
-				<u>ingreagents:</u><br>
+				<u>Ingredients:</u><br>
 				<div id="myDiv" class="scroll"> </div>
 				</div>
 			</th>
 
 			<th>
-				<u>choose a category:<br><br></u>
-				<div class="cat"><a href="javascript:;" onclick="openMenu('1')">alcoholic drinks</a></div>
+				<u>Choose a category:<br><br></u>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('1')">Spirits</a></div>
 				<input type="hidden" value="closed" id="hidden1">
-				<div class="cat"><a href="javascript:;" onclick="openMenu('2')">non alcoholic</a><br></div>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('2')">Liqueurs</a><br></div>
 				<input type="hidden" value="closed" id="hidden2">
-				<div class="cat"><a href="javascript:;" onclick="openMenu('3')">soft drinks</a><br></div>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('3')">Mixers</a><br></div>
 				<input type="hidden" value="closed" id="hidden3">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('4')">Wines/Beer</a><br></div>
+                                <input type="hidden" value="closed" id="hidden4">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('5')">Garnishes</a><br></div>
+                                <input type="hidden" value="closed" id="hidden5">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('6')">Syrups</a><br></div>
+                                <input type="hidden" value="closed" id="hidden6">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('7')">Spices</a><br></div>
+                                <input type="hidden" value="closed" id="hidden7">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('8')">Other</a><br></div>
+                                <input type="hidden" value="closed" id="hidden8">
 			</th>
 			
 			<th>
 			<div class="subBorder">
-				<u>choose an ingreagent:</u><br><br>
+				<u>Choose an ingredient:</u><br><br>
 				<div class="scroll">
 				
 					<div id="sub1" style="display: none;" class="sublist">
-					
-						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('bacardi')">bacardi</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemonchelo')">Lemonchelo</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemoncelo')">Lemoncelo</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemonncelo')">Lemonncelo</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('test-ing4')">test-ing4</a><br>
-<a onmouseover="" style="cursor: pointer;" onclick="addEvent('test-ing5')">test-ing5</a><br>
-
-
+					<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Bacardi')">Bacardi</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Bourbon')">Bourbon</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Brandy')">Brandy</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cinnamon schnapps')">Cinnamon schnapps</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cognac')">Cognac</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Dark Rum')">Dark Rum</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Everclear')">Everclear</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Gin')">Gin</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Golden Rum')">Golden Rum</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Jagermeister')">Jagermeister</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Ouzo')">Ouzo</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Pernod')">Pernod</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Pisco( grape brandy)')">Pisco( grape brandy)</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Rum')">Rum</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Sambuca')">Sambuca</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Spirit')">Spirit</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Tequila')">Tequila</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Vodka')">Vodka</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Watermelon Schnapps')">Watermelon Schnapps</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Whiskey')">Whiskey</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('White Rum')">White Rum</a><br>
 
 					</div>
 					<div id="sub2"style="display: none;" class="sublist">
-						CATLIST2
-					
+					<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Amaretto')">Amaretto</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Baileys')">Baileys</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Bitters')">Bitters</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Blue Curacao')">Blue Curacao</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cherry Liqueur')">Cherry Liqueur</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Coconut Liqueur')">Coconut Liqueur</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Coffee Liqueur')">Coffee Liqueur</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cointreau')">Cointreau</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cream of Coconut')">Cream of Coconut</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Drambuie')">Drambuie</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Goldschlager')">Goldschlager</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Grand Marnier')">Grand Marnier</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Irish Cream')">Irish Cream</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Kahlua')">Kahlua</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Malibu')">Malibu</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Martini')">Martini</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Martini Bianco')">Martini Bianco</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Martini Rosso')">Martini Rosso</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Orange Liqueur')">Orange Liqueur</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Peach Schnapps')">Peach Schnapps</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Peppermint schnapps')">Peppermint schnapps</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Southern Comfort')">Southern Comfort</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Triple Sec')">Triple Sec</a><br>
+	
 					</div>
 					<div id="sub3"style="display: none;" class="sublist">
-						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cola')">Cola</a><br>
-						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Apple Juice')">Apple Juice</a><br>
-						<br>
+					<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cola')">Cola</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cranberry Juice')">Cranberry Juice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cream')">Cream</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Energy Drink')">Energy Drink</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemon Juice')">Lemon Juice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lime Juice')">Lime Juice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Orange Juice')">Orange Juice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Pineapple Juice')">Pineapple Juice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Red Bull')">Red Bull</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Soda Water')">Soda Water</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Sweet And Sour Mix')">Sweet And Sour Mix</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Tomato Juice')">Tomato Juice</a><br>
+
 					</div>
+					<div id="sub4"style="display: none;" class="sublist">
+                                        <a onmouseover="" style="cursor: pointer;" onclick="addEvent('Ale Beer')">Ale Beer</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Beer')">Beer</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lager Beer')">Lager Beer</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Sparkling Wine')">Sparkling Wine</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Stout Beer')">Stout Beer</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Wine')">Wine</a><br>
+  
+                                        </div>
+					<div id="sub5"style="display: none;" class="sublist">
+                                        <a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cherry')">Cherry</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemon Rind')">Lemon Rind</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemon Slice')">Lemon Slice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lime Rind')">Lime Rind</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lime Slice')">Lime Slice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Mint Sprigs')">Mint Sprigs</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Orange Slice')">Orange Slice</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Slice of Orange')">Slice of Orange</a><br>
+  
+                                        </div>
+					<div id="sub6"style="display: none;" class="sublist">
+                                        <a onmouseover="" style="cursor: pointer;" onclick="addEvent('Grenadine')">Grenadine</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Sugar Syrup')">Sugar Syrup</a><br>
+
+                                        </div>
+					<div id="sub7"style="display: none;" class="sublist">
+                                        <a onmouseover="" style="cursor: pointer;" onclick="addEvent('Salt')">Salt</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Sugar')">Sugar</a><br>
+  
+                                        </div>
+					<div id="sub8"style="display: none;" class="sublist">
+                                        OTHER  
+                                        </div>
 				</div>
 			</div>
 			</th> 

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home - Home Page</title>
+	<meta charset="UTF-8">
+
+	<STYLE type="text/css">
+			
+		body{
+			overflow: hidden;}
+			
+		.center
+		{
+			width:100%;
+			display:inline-block;
+			text-align:center;
+		}
+	
+		.frame
+		{
+			minheight:100%;
+			width:100%;
+			height:390px;
+			display:box;
+			box-orient:horizontal;
+			box-pack:center;
+			box-align:center;
+			border: 0px none transparent;
+			background-color: transparent;
+			
+			padding: 0px;
+			overflow: hidden;
+			
+			
+		}
+
+		.bg {
+		border: 0px none transparent;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -5000;}
+
+		.A
+		{
+			text-decoration:none;
+		}
+
+		<!--
+		A:link {COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+		A:visited {COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+		A:active {COLOR: white; TEXT-DECORATION: none }
+		A:hover {COLOR: red; TEXT-DECORATION: none; font-weight: none }
+		-->
+	</STYLE>
+</head>
+<body bgcolor="#A800EC"> 
+	<img src="pic/Background-mobile.gif" class="bg" alt="background">
+	<div class="center">
+		<a href="home-mobile.html" target="myFrame">
+		<img src="pic/logo.gif" alt="logo"/></a> 
+	</div>
+	<div>
+		<iframe name="myFrame" src="home-mobile.html"  class="frame"></iframe>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home search by ing page</title>
+	<meta name="keywords" content="drunk at home, drunk@home, jce project"; charset=UTF-8" />
+
+	<style type="text/css">
+			
+		html, body{
+			width:300px;
+			overflow-Y:auto; 
+			overflow-x:hidden;		
+			max-height: 300px; 
+			margin-left:auto;
+			margin-right:auto;}
+
+		table{
+			display: inline-block;
+			margin-left:auto;
+			margin-right:auto;}
+		<!--
+		A:link {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:visited {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:active {COLOR: white; TEXT-DECORATION: none }
+		A:hover {COLOR: red; TEXT-DECORATION: none; font-weight: none }
+		-->
+		.picture{
+			width:70px;
+			hieght:auto}
+			
+		.reatingPic{
+			width:70px;
+			hieght:auto}
+			
+		.bord{
+			border-color:black;
+			border-width:1px;
+			border-style:solid;}
+		
+		.scroll{
+			height:30px;
+			overflow:auto;}
+	</style>
+</head>
+<body>
+	<table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=10_7;10;7;1;">jjommmmmjo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=11_7;10;7;1;">jjommmmjo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=12_7;10;7;1;">jjommmjo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=13_7;10;7;1;">jjommmo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=18_7;10;7;1;">11122</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=19_7;10;7;1;">234</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=20_7;10;7;1;">333</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=21_7;10;7;1;">444</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=22_7;10;7;1;">555</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=23_7;10;7;1;">test555</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=24_7;10;7;1;">test5556</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=25_7;10;7;1;">tessssssst</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=26_7;10;7;1;">finale</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/rating_0_5.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=27_7;10;7;1;">finaleoffinel</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/search_by_ing_butten.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=28_7;10;7;1;">testooooooooo</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/no_pic.gif" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=29_7;10;7;1;">Cocktail</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+<table class="bord">
+                        <tr>
+                        <td rowspan="2" >
+                        <img src="../pic/" alt="search by ing" class="picture"/>
+                        </td >
+                        <td colspan="2" >
+                        Name:<a href="recipeByIng.cgi?param=31_7;10;7;1;">dovs coocktail</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+                        Rank:
+                        </td>
+                        <td>
+                        <img src="../pic/rating_4_5.gif" alt="rating pic" class="reatingPic">
+                        </td>
+                        </tr>
+                </table>
+
+	</table>	
+		
+</body>
+</html>

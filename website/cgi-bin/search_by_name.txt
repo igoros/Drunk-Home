@@ -15,11 +15,10 @@ DIV.center
 </head>
 <body style="text-align:center">
 <div class="center">
-	<form name="searchByName" id="searchByName" method="post" action="cgi-bin/recipeByName.cgi" target="_self"> 
+	<form name="searchByName" id="searchByName" method="post" action="recipeByName.cgi" target="_self"> 
 		<datalist id="cocktailList">
-		<input type="search" name="myCocktailSearch" list="cocktailList" placeholder="search" autocomplete="off" />
 		&nbsp;&nbsp;
-		<input type="submit" name="ingsubmit" value="Search"> <br><br>
+		<input type="submit" name="SOURCE" value="Submit"> <br><br>
 	</form>
 </div>
 </body>

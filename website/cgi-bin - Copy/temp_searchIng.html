@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home search by ing page</title>
+	<meta charset="UTF-8">	
+
+	<style>	
+		<!--
+		A:link {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:visited {COLOR: black; TEXT-DECORATION: none; font-weight: normal }
+		A:active {COLOR: black; TEXT-DECORATION: none font-weight: normal}
+		A:hover {COLOR: red; TEXT-DECORATION: none; font-weight: none }
+		-->
+
+		.center{
+			margin-left:50%;
+			margin-left:auto;
+			margin-right:auto;
+			vertical-align:bottom;}
+
+		html, body {
+			overflow: hidden; 
+			height: 100%; 
+			max-height: 100%; 
+			margin: 0;
+			padding: 0;}
+
+
+		table {
+			height:90%;;
+			width:70%;
+			
+			margin-left:auto;
+			margin-right:auto;}
+
+		th{
+			width:25%;
+			height:90%;
+			minheight:100%;
+			maxheight:100%;
+			vertical-align:top}
+		
+		input[type="search"]{
+			color:white;
+			height:20px;
+			background: -webkit-gradient(linear, left top, left bottombottom, from(#bcbcbe), to(#ffffff));  
+			background: -moz-linear-gradient(top,  #606060,  #8000ff);  
+			border-radius: 10px;}
+		
+		#searchBotton{vertical-align:bottom;}
+
+		.button{
+			border: 0px
+			background-color:transparent;
+			font-weight: bold;
+			font-size: 200%;}
+
+		.scroll{boder:1;
+			height:250px;
+			overflow:auto;}
+			
+		.sublist{
+			font-style:italic;}
+			
+		.cat{
+			font-size:120%;}
+			
+		.letfAl{
+			text-align:left;}
+			
+		.myBorder{
+			border: solid 0 black;
+			border-right-width:2px;
+			border-left-width:2px;
+			minheight:100%;
+			padding: 3;}
+		
+		.ingBorder{
+			minheight:100%;
+			border: solid 0 black;
+			border-right-width:1px;
+			border-bottom-width:1px;}
+			
+		.subBorder{
+			minheight:100%;
+			border: solid 0 black;
+			border-right-width:1px;
+			border-bottom-width:1px;}
+	</style>
+
+	<script>	
+		var counter=0;
+		
+		var ingNumList = ["Vodka","1","Whiskey","2","Orange Juice","3","Rum","4","Cola","5","Beer","6","Coffe Liqueur","7","Cream","8","Irish Cream","9","Grand Marnier","10","Kahula","11","Brandy","14","bacardi","16","Milk","18","Sugar","19","ice","20","lemon juice","21","Piss","22","Lemonchelo","23","Lemoncelo","24","Lemonncelo","25","","26","Cognac","37","1","38","Redbull","43","test-ing","44","test-ing1","45","test-ing2","46","test-ing3","47","test-ing4","48","test-ing5","49","test-ing6","50","test-ing7","51","Baileys","52","Sheridans","53","Amaretto almond liqueur","54"]
+		var indId="";<!--add this line-->
+		var NUM_OF_SUB_MENU=3;
+		function addEvent(add_s) {
+			<!--new-->
+			
+			var i;
+			var flage=true;
+			for(i=0;i<ingNumList.length;i++)
+			{
+				if(ingNumList[i]==add_s)
+				{
+					i++;
+					ingId=ingNumList[i];
+					flage=false;
+					break;
+				}
+			}	
+			
+			if(flage)
+			{
+				errFlage=true;
+				return;
+				
+				var myD = document.getElementById('errores');
+				var divIdName = "subError";
+				var newdiv = document.createElement('div');
+				newdiv.setAttribute("id",divIdName);
+				newdiv.innerHTML = "ingreagent does not exist. please choose from the list!!!";
+				myD.appendChild(newdiv);
+				
+			}
+			<!--end of new-->
+			document.getElementById("search").value="";
+			var myD = document.getElementById('myDiv');
+
+			var divIdName = "ing"+counter;
+			var newdiv = document.createElement('div');
+			newdiv.setAttribute("id",divIdName);
+			newdiv.innerHTML = "<a href=\"javascript:;\" onclick=\"removeElement(\'"+divIdName+"\')\">"+add_s+"</a>";
+			myD.appendChild(newdiv);
+
+			var fD = document.getElementById('formDiv');
+			var hiddenInput = document.createElement('input');
+			hiddenInput.setAttribute("type","hidden");
+			hiddenInput.setAttribute("form","retrunForm");
+			hiddenInput.setAttribute("value",ingId);<!--chang to ingId-->
+			hiddenInput.setAttribute("name","ing");
+			divIdName=divIdName+"h";
+			hiddenInput.setAttribute("id",divIdName);
+			fD.appendChild(hiddenInput);
+			counter++;}
+
+		function removeElement(divNum) {
+			var d = document.getElementById('myDiv');
+			var olddiv = document.getElementById(divNum);
+			d.removeChild(olddiv);
+
+			divNum=divNum+"h";
+			var d1 = document.getElementById('formDiv');
+			var olddiv = document.getElementById(divNum);
+			d1.removeChild(olddiv);}
+
+		<!---------------------------------------------------------
+		<!------------expanding menu-------------------------------
+		<!---------------------------------------------------------
+
+			function openMenu(num)
+			{
+				var h="hidden"+num;
+				var h1=document.getElementById(h);
+
+				if(h1.value=="closed")
+				{
+					h1.setAttribute("value","not closed");
+					var sub="sub"+num;
+					var change = document.getElementById(sub);
+					change.setAttribute("style","");
+				}
+				else
+				{
+					h1.setAttribute("value","closed");
+					var sub="sub"+num;	
+					var change = document.getElementById(sub);		
+					change.setAttribute("style","display: none;");
+				}
+				
+				var i;
+				for(i=1;i<=NUM_OF_SUB_MENU;i++)
+				{
+					var h="hidden"+i;
+					var h1=document.getElementById(h);
+					
+					if(i != num)
+					{
+						if(h1.value=="not closed")
+						{
+							h1.setAttribute("value","closed");
+							var sub="sub"+i;	
+							var change = document.getElementById(sub);		
+							change.setAttribute("style","display: none;");
+						}
+					}
+				}	
+			}
+	</script>
+
+</head>
+<body>
+	<form id="retrunForm" name="retrunForm" method="POST" action="cgi-bin/resultsByIng.cgi"> 
+		<div id="formDiv"></div>
+        </form>
+
+	<datalist id="inglist">
+<option value="Vodka">
+<option value="Whiskey">
+<option value="Orange Juice">
+<option value="Rum">
+<option value="Cola">
+<option value="Beer">
+<option value="Coffe Liqueur">
+<option value="Cream">
+<option value="Irish Cream">
+<option value="Grand Marnier">
+<option value="Kahula">
+<option value="Brandy">
+<option value="bacardi">
+<option value="Milk">
+<option value="Sugar">
+<option value="ice">
+<option value="lemon juice">
+<option value="Piss">
+<option value="Lemonchelo">
+<option value="Lemoncelo">
+<option value="Lemonncelo">
+<option value="">
+<option value="Cognac">
+<option value="1">
+<option value="Redbull">
+<option value="test-ing">
+<option value="test-ing1">
+<option value="test-ing2">
+<option value="test-ing3">
+<option value="test-ing4">
+<option value="test-ing5">
+<option value="test-ing6">
+<option value="test-ing7">
+<option value="Baileys">
+<option value="Sheridans">
+<option value="Amaretto almond liqueur">
+</datalist>
+
+	<div id="errores"></div>
+	
+	<table>
+		<tr>
+			<th>
+				<div class="ingBorder">
+				<u>ingreagents:</u><br>
+				<div id="myDiv" class="scroll"> </div>
+				</div>
+			</th>
+
+			<th>
+				<u>choose a category:<br><br></u>
+				<div class="cat"><a href="javascript:;" onclick="openMenu('1')">alcoholic drinks</a></div>
+				<input type="hidden" value="closed" id="hidden1">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('2')">non alcoholic</a><br></div>
+				<input type="hidden" value="closed" id="hidden2">
+				<div class="cat"><a href="javascript:;" onclick="openMenu('3')">soft drinks</a><br></div>
+				<input type="hidden" value="closed" id="hidden3">
+			</th>
+			
+			<th>
+			<div class="subBorder">
+				<u>choose an ingreagent:</u><br><br>
+				<div class="scroll">
+				
+					<div id="sub1" style="display: none;" class="sublist">
+					
+						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('bacardi')">bacardi</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemonchelo')">Lemonchelo</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemoncelo')">Lemoncelo</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Lemonncelo')">Lemonncelo</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('test-ing4')">test-ing4</a><br>
+<a onmouseover="" style="cursor: pointer;" onclick="addEvent('test-ing5')">test-ing5</a><br>
+
+
+
+					</div>
+					<div id="sub2"style="display: none;" class="sublist">
+						CATLIST2
+					
+					</div>
+					<div id="sub3"style="display: none;" class="sublist">
+						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Cola')">Cola</a><br>
+						<a onmouseover="" style="cursor: pointer;" onclick="addEvent('Apple Juice')">Apple Juice</a><br>
+						<br>
+					</div>
+				</div>
+			</div>
+			</th> 
+			<th>
+			<div class="searchBorder">
+				<form id="rightForm">
+					<input type="search" id="search" placeholder="search" list="inglist" autocomplete="off">
+					<input type="button" id="addBotton" value="add">
+					<script>
+					document.getElementById("addBotton").onclick = function() { addEvent(document.getElementById("search").value)}
+					</script>
+				</form>
+			</div>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="4">
+				<input type="submit" id="searchBotton" value="search" form="retrunForm" class="button">
+			</th>
+		</tr>
+	</table>
+</body>
+</html>

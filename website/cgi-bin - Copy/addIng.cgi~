@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+print "Content-type:text/html<br><br>";
+
+use Data::Dumper;
+use dh_utils qw( form2data updatePage );
+
+# Read the standard input (sent by the form):
+read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
+
+
+print Dumper $FormData;
+print "GOT FORM!!!\n";
+
+#my %data = &form2data($FormData);
+
+#print "data:$data";
+
+1;

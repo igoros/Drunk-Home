@@ -9,4 +9,6 @@ use Data::Dumper;
 
 
 my $results = &updSearchByIng;
+&updAdminPage;
+&updSrchByName;
 print "$results";

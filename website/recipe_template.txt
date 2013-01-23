@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drunk at Home - recipe template</title>
+	<meta charset="UTF-8">
+	<script>
+		function open()
+		{
+			var h = document.getElementById("hidden");
+			
+			if(h.value=="closed")
+			{
+				h.setAttribute("value","open");
+				
+				var d = document.getElementsByName("hidden");
+				
+				for(var i = 0;i<d.length;i++)
+				{	
+					d[i].setAttribute("style","");
+				}
+				
+				var b = document.getElementById('openMenu');
+				b.setAttribute("value","close menu");
+			}
+			else
+			{
+				h.setAttribute("value","closed");
+				
+				var d = document.getElementsByName("hidden");
+				
+				for(var i = 0;i<d.length;i++)
+				{
+					d[i].setAttribute("style","display: none;")
+				}
+				
+				var b = document.getElementById('openMenu');
+				b.setAttribute("value","Add Rating Or Comment");
+			}
+		}
+	</script>
+	<style type="text/css">
+		
+		html, body {
+			overflow: auto; 
+			height: 100%; 
+			max-height: 100%; 
+			margin: 0;
+			padding: 0;
+			text-align: left;}	
+
+		.myBorder{
+			minheight:100%;
+			border: solid 0 black;
+			border-right-width:1px;
+			border-bottom-width:1px;}
+	</style>
+</head>
+
+
+<body>
+	<table>
+	<tr>
+	<td>
+		<table>
+		<thead>
+			<tr>
+			<h2>COCKNAME</h2>
+			</tr>
+			<tr>
+			<th><img src="../pic/COCKPIC" alt="no picture available" width="100" height="100"/></th>
+			<th>
+			<p>
+				INGREDIENTS
+			</p></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<th><div><h3>rating:</h3>
+			<img src="pic/rating_4_5.gif" alt="rating pic" height="30px"></div></th>
+			<th>
+			<p>
+				RECIPE
+			</p>
+			</th>
+			</tr>
+		</tbody>
+		</table>
+	</td>
+
+	<td valign="top">
+	<form action="cgi-bin/RatingComments.cgi">
+	<input type="hidden" id="cocktailName" name="cocktailName" value="COCKNAME">
+	<table class="top">
+	<tr>
+	<td>
+	<input type="button" id="openMenu" name="openMenu" value="Add Rating Or Comment">
+	<input type="hidden" id="hidden" name="hidden" value="closed">
+	<script>
+	document.getElementById("openMenu").onclick = function() { open()}
+	</script>
+	</td>
+	</tr>
+
+	<tr>
+
+	<td>
+	<div id="hiddenForm1" name="hidden" style="display: none;">
+	rating:
+	1 <input type="radio" name="rank" value="1">
+	2 <input type="radio" name="rank" value="2">
+	3 <input type="radio" name="rank" value="3">
+	4 <input type="radio" name="rank" value="4">
+	5 <input type="radio" name="rank" value="5">
+	</div>
+	</td>
+	</tr>
+
+	<tr>
+	<td>
+	<div id="hiddenForm2" name="hidden" style="display: none;">
+	<textarea rows="10" cols="40" name="comment" ></textarea>
+	</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<div id="hiddenForm3" name="hidden" style="display: none;">
+	<input type="submit" name="comment" value="seand">
+	</div>
+	</td>
+	</tr>
+	</table>
+	</form>
+	</td>
+	</tr>
+	
+	COMMENTS
+	
+	</table>
+</body>
+</html>

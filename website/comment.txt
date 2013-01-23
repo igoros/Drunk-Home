@@ -1,0 +1,8 @@
+	<tr colspan="2" border="1">
+	<td>
+	<div class="myBorder">
+	coment:<br>
+	good!!!
+	</div>
+	</td>
+	</tr>
